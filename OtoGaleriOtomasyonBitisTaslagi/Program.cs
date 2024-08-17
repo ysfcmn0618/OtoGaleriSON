@@ -40,8 +40,8 @@ namespace OtoGaleriUygulamasi
                     case "S": ArabaSil(); break;
                     case "9":
                     case "G": BilgileriGöster(); break;
-                    case "C": Console.Clear(); break;
-                    case "L": Menu(); break;
+                    //case "C": Console.Clear(); break;
+                    //case "L": Menu(); break;
                 }
             }
         }
@@ -81,7 +81,7 @@ namespace OtoGaleriUygulamasi
                         car = a;
                         break;
                     }
-                }
+                }                
                 if (OtoGaleri.AracGaleridemi(car))
                 {
                     continue;
@@ -130,7 +130,7 @@ namespace OtoGaleriUygulamasi
                 {
                     if (a.Plaka == plaka)
                     {
-                        car = a;
+                        car = a;                        
                         break;
                     }
                 }
@@ -141,6 +141,7 @@ namespace OtoGaleriUygulamasi
                 if (car.Durum == "Galeride")
                 {
                     Console.WriteLine("Hatalı giriş yapıldı. Araba zaten galeride.");
+                    car=null;
                     continue;
                 }
                 car.Durum = "Galeride";
@@ -290,6 +291,7 @@ namespace OtoGaleriUygulamasi
                 if (car.Durum == "Galeride")
                 {
                     Console.WriteLine("Hatalı giriş yapıldı. Araba zaten galeride.");
+                    car = null;
                     continue;
                 }
                 car.Durum = "Galeride";
@@ -300,7 +302,7 @@ namespace OtoGaleriUygulamasi
         }
         static string SecimAl()
         {
-            string karakterler = "123456789KTRMAIYSGXCL";
+            string karakterler = "123456789KTRMAIYSGX";/*CL";*/
             int sayac = 0;
             while (true)
             {

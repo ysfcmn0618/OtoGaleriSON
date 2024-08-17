@@ -66,7 +66,19 @@ namespace OtoGaleriUygulamasi
                 return toplam;
             }
         }
-        public int ToplamAracKiralamaAdedi = 0;
+        public int ToplamAracKiralamaAdedi
+        {
+            get
+            {
+                int toplam = 0;
+                foreach (Araba item in Arabalar)
+                {
+                    toplam += item.KiralamaSureleri.Count;
+
+                }
+                return toplam;
+            }
+        }
 
 
         public float Ciro
@@ -99,8 +111,6 @@ namespace OtoGaleriUygulamasi
                     a = item;
                     a.Durum = "Kirada";
                     a.KiralamaSureleri.Add(sure);
-
-                    ToplamAracKiralamaAdedi++;
                 }
 
             }
@@ -149,12 +159,12 @@ namespace OtoGaleriUygulamasi
 
                     item.KiralamaSureleri.RemoveAt(item.KiralamaSureleri.Count - 1);
 
-                    ToplamAracKiralamaAdedi--;
                     ArabaTeslimAl(plaka);
                     break;
                 }
             }
         }
+       
         public void ArabaEkle(string plaka, string marka, float kiralamaBedeli, string aTipi)
         {
 
